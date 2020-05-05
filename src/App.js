@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-import image from '../img/vumbulaitem.png';
-import {ItemCard} from "./ItemCard";
-import {Footer} from "./Footer";
-import {Nav} from "./Nav";
-import {Jumbtron} from "./Jumbtron";
-import {AddItem} from "./AddItem";
+import image from './img/vumbulaitem.png';
+import {ItemCard} from "./components/ItemCard";
+import {Footer} from "./components/Footer";
+import {Nav} from "./components/Nav";
+import {Jumbtron} from "./components/Jumbtron";
+import AddItem from "./components/AddItem";
 
 class App extends Component {
   //TODO 1: Add name and price to the state object
   state = {
+    name: '',
+    price: '',
     items: [
       {
         id: 1,
@@ -41,6 +43,7 @@ class App extends Component {
 
   render() {
     //TODO 2: Destruct name and price from the state object and pass them as props to the AddItem component.
+    const { name, price } = this.state;
     //TODO 11: Define an onChange prop on the AddItem component with a value of this.handleInputChange
     //TODO 16: Define an onSubmit prop on the AddItem with a value of this.addItem
     return <div>
@@ -50,7 +53,9 @@ class App extends Component {
 
       <div className="container pt-4">
 
-        <AddItem/>
+        <AddItem 
+        name={name}
+        price={price} />
 
         <h1 className="display-4 my-4 text-center text-muted">Items</h1>
 

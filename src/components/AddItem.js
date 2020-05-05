@@ -9,13 +9,14 @@ import PropTypes from 'prop-types';
 //TODO 14: Add an onChange attribute to both input elements with the value of the onChange prop.
 //TODO 17: Add an onSubmit to the list of destructed elements in the function argument list.
 //TODO 19: Add an onSubmit attribute to the form with the value of onSubmit.
-export const AddItem = () => (
+const AddItem = ({name, price}) => (
     <div className="row justify-content-center">
       <form className="form-inline">
         <input
             type="text"
             className="form-control mb-2 mr-sm-2"
             placeholder="Item"
+            value={name}
         />
 
         <div className="input-group mb-2 mr-sm-2">
@@ -23,12 +24,14 @@ export const AddItem = () => (
               type="text"
               className="form-control"
               placeholder="Price"
+              value={price}
           />
         </div>
         <button type="submit" className="btn btn-primary mb-2 pxy-4">Save</button>
       </form>
     </div>
 );
+export default AddItem;
 
 //TODO 7: Import PropTypes from the prop-types package.
 //TODO 8: Add a proptypes object for name and price with a type of string and mark them as required.
