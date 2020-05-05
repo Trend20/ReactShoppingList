@@ -36,6 +36,15 @@ class App extends Component {
   };
 
   //TODO 9: Create an arrow function called handleInputChange which accepts event as its own argument.
+  handleInputChange = (event) =>{
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    this.setState({
+      [name] :value
+    });
+  };
   //TODO 10: Handle the event changes in the name and price input elements when a user types in them.
   //TODO 14: Define an arrow function called addItem which accepts event as its only argument.
   //TODO 15: Within it call preventDefault() on event and also add the functionality to add
@@ -55,7 +64,9 @@ class App extends Component {
 
         <AddItem 
         name={name}
-        price={price} />
+        price={price}
+        onChange={this.handleInputChange} 
+        />
 
         <h1 className="display-4 my-4 text-center text-muted">Items</h1>
 
